@@ -20,7 +20,7 @@ ARG NODE_VERSION="lts/*"
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install $NODE_VERSION" 2>&1
 
 # [Choice] Ignite CLI version
-ARG IGNITE_CLI_VERSION="0.22.1"
+ARG IGNITE_CLI_VERSION=$(curl --silent "https://api.github.com/repos/ignite-hq/cli/releases/latest" | jq -r .tag_name)
 RUN curl "https://get.ignite.com/cli@$IGNITE_CLI_VERSION!" | bash
 
 # [Choice] Go language server version: latest, v0.8.4, v0.8, ...
