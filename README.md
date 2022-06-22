@@ -21,4 +21,4 @@ Includes:
 - [VS Code Proto3 extension](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3)
 - Other extensions from base VSC-Go docker image
 
-See `.devcontainer/devcontainer.json` for exact version numbers.
+See `.devcontainer/Dockerfile` for exact version numbers.

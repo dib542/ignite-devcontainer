@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.238.0/containers/go/.devcontainer/base.Dockerfile
 
 # [Choice] Go version (use -bullseye variants on local arm64/Apple Silicon): 1, 1.16, 1.17, 1-bullseye, 1.16-bullseye, 1.17-bullseye, 1-buster, 1.16-buster, 1.17-buster
-ARG VARIANT="1-bullseye"
+ARG VARIANT="1.18-bullseye"
 FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 
 # install additional OS packages.
@@ -16,15 +16,15 @@ RUN apt-get install -y \
     curl
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
-ARG NODE_VERSION="lts/*"
+ARG NODE_VERSION="v16.14.2"
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install $NODE_VERSION" 2>&1
 
 # [Choice] Ignite CLI version
-ARG IGNITE_CLI_VERSION=$(curl --silent "https://api.github.com/repos/ignite-hq/cli/releases/latest" | jq -r .tag_name)
+ARG IGNITE_CLI_VERSION="v0.22.1"
 RUN curl "https://get.ignite.com/cli@$IGNITE_CLI_VERSION!" | bash
 
 # [Choice] Go language server version: latest, v0.8.4, v0.8, ...
-ARG GO_PLS_VERSION="latest"
+ARG GO_PLS_VERSION="v0.8.4"
 RUN go install "golang.org/x/tools/gopls@$GO_PLS_VERSION"
 
 # see docs for exposed ports:
