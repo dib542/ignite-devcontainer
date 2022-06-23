@@ -16,9 +16,8 @@ Includes:
 - git
 - Go
 - Node (+ nvm + yarn)
-- Rust
 - Ignite CLI
+- [VS Code Go extenstion](https://marketplace.visualstudio.com/items?itemName=golang.Go)
 - [VS Code Proto3 extension](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3)
-- Other extensions from base VSC-Go docker image
 
 See `.devcontainer/Dockerfile` for exact version numbers.
